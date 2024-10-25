@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import ReactQueryProvider from "@/utils/Providers";
+import Helper from "@/components/layouts/Helper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
             <Header />
             {children}
             <Footer />
+            <Helper />
             <Toaster />
             <Analytics />
             <SpeedInsights />
