@@ -11,7 +11,7 @@ function MobileHomeView({
   return (
     <Tabs
       defaultValue='new-uploads'
-      className={`flex flex-col items-center gap-4 w-full ${className}`}
+      className={`flex flex-col items-center gap-4 w-full ${className} `}
     >
       <TabsList className='flex gap-4 w-2/3'>
         <TabsTrigger value='new-uploads'>New Uploads</TabsTrigger>
