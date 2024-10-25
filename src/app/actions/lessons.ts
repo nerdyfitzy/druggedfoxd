@@ -2,8 +2,6 @@
 
 import { FilterValues } from "@/lib/types";
 import { createClient } from "@/utils/supabase/server";
-import { db } from "@/db";
-import { lessons } from "@/db/schema";
 
 export async function getLessons(
   filters: FilterValues,
@@ -12,15 +10,8 @@ export async function getLessons(
   const { character, opponent, notes, timestamped } = filters;
   const { page, amount } = pagination;
   console.log(page, amount);
-  // console.log("requesting on drizzle");
-  // const res = await db.select().from(lessons).limit(20);
-  // console.log("this is from drizzle", res);
 
   const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-  // const selectQuery = user ? `*, "Bookmarked Lessons(userId, lessonId)"` : `*`;
   let query = supabase
     .from("Lessons")
     .select("*", { count: "exact" })

@@ -15,7 +15,6 @@ import Filters from "./Filters";
 import { useUser } from "@/hooks/useUser";
 import { SearchParamsProps } from "@/lib/types";
 import { Filter } from "lucide-react";
-import PostsPagination from "./Pagination";
 import { getAllUserBookmarks } from "@/app/actions/bookmark";
 import { getAllUserWatched } from "@/app/actions/watch";
 

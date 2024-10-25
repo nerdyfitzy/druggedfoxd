@@ -18,7 +18,7 @@ const useBookmarkState = (bookmarked: boolean, lessonId: number) => {
         setBmState(parsed[0].toStatus);
       }
     }
-  }, [variables]);
+  }, [variables, bookmarked, lessonId]);
 
   return bmState;
 };

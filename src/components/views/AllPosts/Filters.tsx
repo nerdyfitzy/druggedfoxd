@@ -38,7 +38,7 @@ export default function Filters() {
 
   useEffect(() => {
     handleFilter(filterOptions);
-  }, [filterOptions]);
+  }, [filterOptions, handleFilter]);
 
   return (
     <>

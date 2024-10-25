@@ -8,7 +8,7 @@ export default function useFilterParams() {
 
   const handleFilter = (filterValues: FilterValues) => {
     const newParams = new URLSearchParams(params.toString());
-    for (let key in filterValues) {
+    for (const key in filterValues) {
       if (filterValues[key as keyof FilterValues] !== undefined)
         newParams.set(key, String(filterValues[key as keyof FilterValues]));
       else newParams.delete(key);
