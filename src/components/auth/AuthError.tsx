@@ -11,7 +11,7 @@ function AuthError() {
   return (
     <>
       {loginError[0]?.message && (
-        <p className='text-red-500 text-sm'>{loginError[0]?.message}</p>
+        <p className='text-red-500 text-sm my-2'>Invalid login credentials</p>
       )}
     </>
   );
