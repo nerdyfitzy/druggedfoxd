@@ -12,7 +12,6 @@ import OAuthButton from "./OAuthButton";
 import EmailForm from "./LoginForm";
 import { Separator } from "../ui/separator";
 import SignUpForm from "@/components/auth/SignUpForm";
-import { useMutationState } from "@tanstack/react-query";
 import AuthError from "./AuthError";
 
 const connections: { name: "google" | "discord"; image: any }[] = [
@@ -48,6 +47,7 @@ export default function AuthCard({
       <CardContent>
         {login && <EmailForm />}
         {signup && <SignUpForm />}
+        <AuthError />
 
         <div className='my-2 flex w-full flex-row items-center justify-between gap-2 px-4 text-center text-sm text-slate-500'>
           <Separator className='w-1/3' />
@@ -59,7 +59,6 @@ export default function AuthCard({
             <OAuthButton key={name} name={name} image={image} />
           ))}
         </div>
-        <AuthError />
       </CardContent>
     </Card>
   );
