@@ -18,14 +18,31 @@ import {
 import { Input } from "@/components/ui/input";
 import ShowPWButton from "./ShowPWButton";
 import { login } from "@/app/(auth)/actions";
+import { useMutation } from "@tanstack/react-query";
+import { LoginMethods } from "@/lib/types";
 
 export default function EmailForm() {
+  const mutation = useMutation({
+    mutationKey: ["login"],
+    mutationFn: (data: {
+      method: LoginMethods;
+      credentials: { email: string; password: string };
+    }) => {
+      return login(data.method, {
+        email: data.credentials.email,
+        password: data.credentials.password,
+      });
+    },
+  });
   const [showPW, setShowPW] = useState(false);
   const form = useForm<z.infer<typeof emailLoginSchema>>({
     resolver: zodResolver(emailLoginSchema),
   });
   function onSubmit(values: z.infer<typeof emailLoginSchema>) {
-    login("email", { email: values.email, password: values.password });
+    mutation.mutate({
+      method: "email",
+      credentials: { email: values.email, password: values.password },
+    });
   }
 
   return (

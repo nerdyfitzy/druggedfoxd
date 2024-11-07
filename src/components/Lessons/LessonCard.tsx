@@ -48,7 +48,7 @@ function Lesson({ isLoggedIn, db, lesson, userInfo }: LessonProps) {
       <ContextMenu>
         <ContextMenuTrigger>
           <LessonLink link={link} id={id} loggedIn={isLoggedIn}>
-            <Card className='active:bg-zinc-75 relative mb-4 max-w-fit hover:bg-zinc-50 dark:hover:bg-slate-800 sm:h-52 sm:w-full md:h-52'>
+            <Card className='active:bg-zinc-75 relative mb-4 max-w-fit hover:bg-zinc-50 dark:hover:bg-slate-800 sm:h-52  sm:w-full md:h-52'>
               {db == "allPosts" ? (
                 <div className='absolute right-0 top-0 z-50 mx-2 my-1 flex items-center justify-around gap-2'>
                   <WatchedBookmarked watched={wState} bookmarked={bmState} />

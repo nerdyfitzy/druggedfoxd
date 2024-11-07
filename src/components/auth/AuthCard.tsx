@@ -12,6 +12,8 @@ import OAuthButton from "./OAuthButton";
 import EmailForm from "./LoginForm";
 import { Separator } from "../ui/separator";
 import SignUpForm from "@/components/auth/SignUpForm";
+import { useMutationState } from "@tanstack/react-query";
+import AuthError from "./AuthError";
 
 const connections: { name: "google" | "discord"; image: any }[] = [
   {
@@ -57,6 +59,7 @@ export default function AuthCard({
             <OAuthButton key={name} name={name} image={image} />
           ))}
         </div>
+        <AuthError />
       </CardContent>
     </Card>
   );
