@@ -22,7 +22,7 @@ import { useMutation } from "@tanstack/react-query";
 import { LoginMethods } from "@/lib/types";
 
 export default function EmailForm() {
-  const mutation = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["login"],
     mutationFn: (data: {
       method: LoginMethods;
@@ -39,7 +39,7 @@ export default function EmailForm() {
     resolver: zodResolver(emailLoginSchema),
   });
   function onSubmit(values: z.infer<typeof emailLoginSchema>) {
-    mutation.mutate({
+    mutate({
       method: "email",
       credentials: { email: values.email, password: values.password },
     });

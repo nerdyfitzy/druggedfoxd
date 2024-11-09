@@ -7,7 +7,7 @@ import { LoginMethods } from "@/lib/types";
 import { useMutation } from "@tanstack/react-query";
 
 function OAuthButton({ name, image }: { name: LoginMethods; image: any }) {
-  const mutation = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["login"],
     mutationFn: (data: { method: LoginMethods }) => {
       return login(data.method, {});
@@ -19,7 +19,7 @@ function OAuthButton({ name, image }: { name: LoginMethods; image: any }) {
       variant='outline'
       key={name}
       asChild
-      onClick={() => mutation.mutate({ method: name })}
+      onClick={() => mutate({ method: name })}
     >
       {name === "discord" ? (
         <Image src={image} alt={name} className='h-12' />
