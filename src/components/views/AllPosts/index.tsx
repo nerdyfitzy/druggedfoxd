@@ -22,23 +22,19 @@ async function AllPosts({ searchParams }: SearchParamsProps) {
   const queryClient = new QueryClient();
   const user = await useUser();
 
-  const { character, opponent, notes, timestamped, page, amount } =
-    searchParams;
-  const boolTimestamped = timestamped === "true" ? true : false;
+  const { character, opponent, notes } = searchParams;
+  const timestamped = searchParams.timestamped === "true" ? true : false;
+  const page = Number(searchParams.page) || 1;
+  const amount = Number(searchParams.amount) || 20;
   await queryClient.prefetchQuery({
     queryKey: [
       "allPosts",
-      character,
-      opponent,
-      notes,
-      timestamped,
-      page,
-      amount,
+      { character, opponent, notes, timestamped, page, amount },
     ],
     queryFn: async () =>
       await getLessons(
-        { character, opponent, notes, timestamped: boolTimestamped },
-        { page: Number(page) || 1, amount: Number(amount) || 20 }
+        { character, opponent, notes, timestamped },
+        { page, amount }
       ),
   });
 
@@ -71,10 +67,10 @@ async function AllPosts({ searchParams }: SearchParamsProps) {
       </h2>
       <HydrationBoundary state={dehydrate(queryClient)}>
         <LessonList
-          filters={{ character, opponent, notes, timestamped: boolTimestamped }}
+          filters={{ character, opponent, notes, timestamped }}
           user={user?.id}
           db='allPosts'
-          pagination={{ page: Number(page) || 1, amount: Number(amount) || 20 }}
+          pagination={{ page, amount }}
         />
       </HydrationBoundary>
     </section>
