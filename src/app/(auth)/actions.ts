@@ -19,11 +19,12 @@ export const login = async (
     if (error) throw new Error(error.message);
     else return;
   } else {
+    console.log(headers(), "HEADERS!!");
     const origin = headers().get("origin");
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: method,
       options: {
-        redirectTo: `${origin}/api/auth/callback`,
+        redirectTo: process.env.POST_LOGIN_CALLBACK_URL,
       },
     });
     if (error) throw new Error(error.message);
