@@ -3,7 +3,6 @@
 import { createClient } from "@/utils/supabase/server";
 import { LoginMethods } from "@/lib/types";
 import { redirect } from "next/navigation";
-import { headers } from "next/headers";
 
 export const login = async (
   method: LoginMethods,
@@ -19,8 +18,6 @@ export const login = async (
     if (error) throw new Error(error.message);
     else return;
   } else {
-    console.log(headers(), "HEADERS!!");
-    const origin = headers().get("origin");
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: method,
       options: {
