@@ -29,7 +29,7 @@ function LessonList({ user, db, filters, pagination }: LessonListProps) {
 
   if (isPending || bookmarksIsPending || watchedIsPending) {
     return (
-      <div>
+      <div className='flex flex-row justify-center'>
         <Spinner />
         Loading...
       </div>
@@ -45,8 +45,8 @@ function LessonList({ user, db, filters, pagination }: LessonListProps) {
         </span>
       )}
 
-      <ScrollArea className='sm:max-md:h-[44%] pr-4 sm:w-full'>
-        <div className='h-1/2 w-full flex flex-row flex-wrap sm:max-md:gap-x-2 md:gap-x-4 gap-y-px'>
+      <ScrollArea className='sm:max-md:h-[40%] md:pr-4 sm:w-full'>
+        <div className='w-full flex flex-row flex-wrap sm:max-md:gap-x-2 md:gap-x-4 gap-y-px'>
           {data?.data.map((lesson) => (
             <Lesson
               key={lesson.id}
