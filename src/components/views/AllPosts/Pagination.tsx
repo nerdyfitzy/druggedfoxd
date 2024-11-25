@@ -39,7 +39,7 @@ export default function PostsPagination({
         <PaginationContent>
           <PaginationItem>
             <PaginationPrevious
-              className=''
+              className='sm:max-md:text-xs'
               href='#'
               onClick={() => {
                 if (page > 1) handleParams(page - 1, -1);
@@ -50,6 +50,7 @@ export default function PostsPagination({
             <>
               <PaginationItem key={1}>
                 <PaginationLink
+                  className='sm:max-md:text-xs'
                   onClick={() => handleParams(1, -1)}
                   isActive={page === 1}
                   href='#'
@@ -77,6 +78,7 @@ export default function PostsPagination({
             (_, i) => (
               <PaginationItem key={i + page}>
                 <PaginationLink
+                  className='sm:max-md:text-xs'
                   onClick={() => handleParams(i + page, -1)}
                   isActive={page === i + page}
                   href='#'
@@ -90,10 +92,11 @@ export default function PostsPagination({
           {totalPages - page > 3 ? (
             <>
               <PaginationItem>
-                <PaginationEllipsis />
+                <PaginationEllipsis className='sm:max-md:text-xs' />
               </PaginationItem>
               <PaginationItem key={totalPages}>
                 <PaginationLink
+                  className='sm:max-md:text-xs'
                   onClick={() => handleParams(totalPages, -1)}
                   isActive={page === totalPages}
                   href='#'
@@ -107,6 +110,7 @@ export default function PostsPagination({
           )}
           <PaginationItem>
             <PaginationNext
+              className='sm:max-md:text-xs'
               href='#'
               onClick={() => {
                 if (page < totalPages) handleParams(page + 1, -1);
