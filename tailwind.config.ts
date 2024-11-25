@@ -10,7 +10,9 @@ const config: Config = {
   theme: {
     screens: {
       sm: "10px",
-
+      mobiles: "326px",
+      mobilem: "375px",
+      mobilel: "380px",
       md: "768px",
       // => @media (min-width: 768px) { ... }
 
