@@ -45,7 +45,7 @@ function LessonList({ user, db, filters, pagination }: LessonListProps) {
         </span>
       )}
 
-      <ScrollArea className='h-[135vh] md:pr-4 sm:w-full overflow-x-visible'>
+      <ScrollArea className='h-[125vh] md:pr-4 sm:w-full overflow-x-visible'>
         <div className='w-full flex flex-row flex-wrap sm:max-md:gap-x-2 md:gap-x-4 gap-y-px'>
           {data?.data.map((lesson) => (
             <Lesson
