@@ -45,7 +45,7 @@ function LessonList({ user, db, filters, pagination }: LessonListProps) {
         </span>
       )}
 
-      <ScrollArea className='sm:max-md:h-2/5 md:h-full md:pr-4 sm:w-full overflow-x-visible'>
+      <ScrollArea className='h-[135vh] md:pr-4 sm:w-full overflow-x-visible'>
         <div className='w-full flex flex-row flex-wrap sm:max-md:gap-x-2 md:gap-x-4 gap-y-px'>
           {data?.data.map((lesson) => (
             <Lesson
@@ -60,13 +60,13 @@ function LessonList({ user, db, filters, pagination }: LessonListProps) {
             />
           ))}
         </div>
-        {db === "allPosts" && (
-          <PostsPagination
-            page={page}
-            totalPages={Math.ceil(Number(data?.count) / amount)}
-          />
-        )}
       </ScrollArea>
+      {db === "allPosts" && (
+        <PostsPagination
+          page={page}
+          totalPages={Math.ceil(Number(data?.count) / amount)}
+        />
+      )}
     </>
   );
 }

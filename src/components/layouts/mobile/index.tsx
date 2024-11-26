@@ -8,7 +8,7 @@ import Link from "next/link";
 function MobileHeader({ className }: { className?: string }) {
   return (
     <header
-      className={`border-b-1 mb-4 relative flex items-center justify-between border-b px-8 py-4 ${className}`}
+      className={`border-b-1 h-16 mb-4 relative flex items-center justify-between border-b px-8 py-4 ${className}`}
     >
       <Link href='/'>
         <Image src={images.logoSmall} alt='logo' width={50} height={25} />
