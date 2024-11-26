@@ -87,7 +87,10 @@ function Lesson({ isLoggedIn, db, lesson, userInfo }: LessonProps) {
                       className='inline sm:max-md:w-4'
                     />
                   ) : (
-                    <CircleX id='timestamped' className='inline' />
+                    <CircleX
+                      id='timestamped'
+                      className='inline sm:max-md:w-4'
+                    />
                   )}
                 </div>
                 <div>

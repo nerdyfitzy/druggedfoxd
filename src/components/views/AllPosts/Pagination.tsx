@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
+import { DEFAULT_AMOUNT } from "@/constants";
 import { Label } from "@/components/ui/label";
 import usePaginationParams from "@/hooks/usePaginationParams";
 
@@ -125,14 +125,19 @@ export default function PostsPagination({
         </Label>
         <Select onValueChange={(v: string) => handleParams(-1, Number(v))}>
           <SelectTrigger className='w-16'>
-            <SelectValue defaultValue={20} placeholder={20} />
+            <SelectValue
+              defaultValue={DEFAULT_AMOUNT}
+              placeholder={DEFAULT_AMOUNT}
+            />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
-              <SelectItem value={String(10)}>10</SelectItem>
-              <SelectItem value={String(15)}>15</SelectItem>
-              <SelectItem value={String(20)}>20</SelectItem>
-              <SelectItem value={String(30)}>30</SelectItem>
+              <SelectItem value={String(25)}>25</SelectItem>
+              <SelectItem value={String(50)}>50</SelectItem>
+              <SelectItem value={String(DEFAULT_AMOUNT)}>
+                {DEFAULT_AMOUNT}
+              </SelectItem>
+              <SelectItem value={String(100)}>100</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

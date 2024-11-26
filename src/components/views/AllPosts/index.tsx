@@ -17,6 +17,7 @@ import { SearchParamsProps } from "@/lib/types";
 import { Filter } from "lucide-react";
 import { getAllUserBookmarks } from "@/app/actions/bookmark";
 import { getAllUserWatched } from "@/app/actions/watch";
+import { DEFAULT_AMOUNT } from "@/constants";
 
 async function AllPosts({ searchParams }: SearchParamsProps) {
   const queryClient = new QueryClient();
@@ -25,7 +26,7 @@ async function AllPosts({ searchParams }: SearchParamsProps) {
   const { character, opponent, notes } = searchParams;
   const timestamped = searchParams.timestamped === "true" ? true : false;
   const page = Number(searchParams.page) || 1;
-  const amount = Number(searchParams.amount) || 20;
+  const amount = Number(searchParams.amount) || DEFAULT_AMOUNT;
   await queryClient.prefetchQuery({
     queryKey: [
       "allPosts",

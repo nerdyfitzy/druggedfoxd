@@ -13,7 +13,10 @@ import {
 
 import { routes } from "./routes";
 
+const DEFAULT_AMOUNT = 75;
+
 export {
+  DEFAULT_AMOUNT,
   images,
   charOptions,
   notesOptions,
