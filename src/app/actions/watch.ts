@@ -28,7 +28,8 @@ export async function getAllUserWatched<T extends boolean>(
     const { data, error } = await supabase
       .from("Watched_Lessons")
       .select(`Lessons (${idOnly ? "id" : "*"})`)
-      .eq("userId", user.id);
+      .eq("userId", user.id)
+      .order("createdAt", { ascending: false });
 
     if (error) {
       throw new Error(`Failed to fetch watched lessons: ${error.message}`);

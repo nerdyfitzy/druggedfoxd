@@ -57,7 +57,8 @@ export async function getAllUserBookmarks<T extends boolean>(
     const { data, error } = await supabase
       .from("Bookmarked_Lessons")
       .select(`Lessons (${idOnly ? "id" : "*"})`)
-      .eq("userId", user.id);
+      .eq("userId", user.id)
+      .order("createdAt", { ascending: false });
 
     if (error) {
       throw new Error(`Failed to fetch bookmarks: ${error.message}`);

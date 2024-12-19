@@ -14,16 +14,19 @@ export type Database = {
           id: number;
           lessonId: number;
           userId: string;
+          createdAt: string;
         };
         Insert: {
           id?: number;
           lessonId: number;
           userId: string;
+          createdAt?: string;
         };
         Update: {
           id?: number;
           lessonId?: number;
           userId?: string;
+          createdAt?: string;
         };
         Relationships: [
           {
@@ -125,16 +128,19 @@ export type Database = {
           id: number;
           lessonId: number;
           userId: string;
+          createdAt: string;
         };
         Insert: {
           id?: number;
           lessonId: number;
           userId: string;
+          createdAt?: string;
         };
         Update: {
           id?: number;
           lessonId?: number;
           userId?: string;
+          createdAt?: string;
         };
         Relationships: [
           {
