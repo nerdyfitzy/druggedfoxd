@@ -14,46 +14,46 @@ import { Viewport } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Druggedfox Organizer",
-  description: "An easier way to improve",
+    title: "Druggedfoxd",
+    description: "Organized Melee lessons",
 };
 
 export const viewport: Viewport = {
-  width: "device-width",
-  height: "device-height",
-  initialScale: 1,
-  minimumScale: 1,
-  maximumScale: 1,
-  userScalable: false,
+    width: "device-width",
+    height: "device-height",
+    initialScale: 1,
+    minimumScale: 1,
+    maximumScale: 1,
+    userScalable: false,
 };
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang='en'>
-      <body
-        suppressHydrationWarning={true}
-        className={`${inter.className} flex h-screen flex-col overflow-hidden bg-zinc-100 text-zinc-900 dark:bg-slate-900 dark:text-zinc-100`}
-      >
-        <ReactQueryProvider>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='system'
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            {children}
-            <Footer />
-            <Helper />
-            <Toaster />
-            <Analytics />
-            <SpeedInsights />
-          </ThemeProvider>
-        </ReactQueryProvider>
-      </body>
-    </html>
-  );
+    return (
+        <html lang='en'>
+            <body
+                suppressHydrationWarning={true}
+                className={`${inter.className} flex h-screen flex-col overflow-hidden bg-zinc-100 text-zinc-900 dark:bg-slate-900 dark:text-zinc-100`}
+            >
+                <ReactQueryProvider>
+                    <ThemeProvider
+                        attribute='class'
+                        defaultTheme='system'
+                        enableSystem
+                        disableTransitionOnChange
+                    >
+                        <Header />
+                        {children}
+                        <Footer />
+                        <Helper />
+                        <Toaster />
+                        <Analytics />
+                        <SpeedInsights />
+                    </ThemeProvider>
+                </ReactQueryProvider>
+            </body>
+        </html>
+    );
 }
