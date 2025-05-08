@@ -26,6 +26,7 @@ export const notesOptions = [
     { value: "Theory", label: "Theory" },
     { value: "Mentality", label: "Mentality" },
     { value: "Edgeguarding", label: "Edgeguarding" },
+    { value: "Teams", label: "Teams" }
 ];
 
 const lessonSchema = z.object({
