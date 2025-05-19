@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchParamsProps } from "@/lib/types";
+import { SearchParamsProps } from "@/utils/types";
 import NewUploads from "../NewUploads";
 import AllPosts from "../AllPosts";
 

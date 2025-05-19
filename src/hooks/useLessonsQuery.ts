@@ -1,5 +1,5 @@
 import { getLessons } from "@/app/actions/lessons";
-import { FilterValues } from "@/lib/types";
+import { FilterValues } from "@/utils/types";
 import { useQuery } from "@tanstack/react-query";
 
 export const useLessonsQuery = (

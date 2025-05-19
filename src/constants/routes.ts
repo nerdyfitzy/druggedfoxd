@@ -1,4 +1,4 @@
-import { TRoutes } from "@/lib/types";
+import { TRoutes } from "@/utils/types";
 
 export const routes: TRoutes = [
   {

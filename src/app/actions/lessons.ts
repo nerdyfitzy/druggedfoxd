@@ -1,6 +1,6 @@
 "use server";
 
-import { FilterValues } from "@/lib/types";
+import { FilterValues } from "@/utils/types";
 import { createClient } from "@/utils/supabase/server";
 
 export async function getLessons(
@@ -21,7 +21,9 @@ export async function getLessons(
         query = query.eq("character", character);
     }
     if (opponent) {
-        query = query.textSearch("opponent", opponent as string, { config: 'english' });
+        query = query.textSearch("opponent", opponent as string, {
+            config: "english",
+        });
     }
     if (notes) {
         query = query.eq("notes", notes as string);
@@ -33,14 +35,14 @@ export async function getLessons(
     const { data, count, error } = await query;
 
     console.log("Got", count, "results for filters", filters);
-    if (!error) {
+    if (error) {
+        console.log(error);
+        throw new Error(error.message);
+    } else {
         return {
             data,
             count,
             totalPages: Math.ceil((count as number) / amount),
         };
-    } else {
-        console.log(error);
-        throw new Error(error.message);
     }
 }

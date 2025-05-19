@@ -19,7 +19,7 @@ import { Input } from "@/components/ui/input";
 import ShowPWButton from "./ShowPWButton";
 import { login } from "@/app/(auth)/actions";
 import { useMutation } from "@tanstack/react-query";
-import { LoginMethods } from "@/lib/types";
+import { LoginMethods } from "@/utils/types";
 
 export default function EmailForm() {
   const { mutate } = useMutation({

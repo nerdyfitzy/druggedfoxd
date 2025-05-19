@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { login } from "@/app/(auth)/actions";
-import { LoginMethods } from "@/lib/types";
+import { LoginMethods } from "@/utils/types";
 import { useMutation } from "@tanstack/react-query";
 
 function OAuthButton({ name, image }: { name: LoginMethods; image: any }) {

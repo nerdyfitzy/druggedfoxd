@@ -2,7 +2,7 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import NewUploads from "../NewUploads";
 import AllPosts from "../AllPosts";
-import { SearchParamsProps } from "@/lib/types";
+import { SearchParamsProps } from "@/utils/types";
 
 function MobileHomeView({
   searchParams,

@@ -1,6 +1,6 @@
 import DesktopHomeView from "@/components/views/Home/desktop";
 import MobileHomeView from "@/components/views/Home/mobile";
-import { SearchParamsProps } from "@/lib/types";
+import { SearchParamsProps } from "@/utils/types";
 
 export default function Home({ searchParams }: SearchParamsProps) {
   return (

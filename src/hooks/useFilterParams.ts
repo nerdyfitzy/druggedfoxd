@@ -1,4 +1,4 @@
-import { FilterValues } from "@/lib/types";
+import { FilterValues } from "@/utils/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function useFilterParams() {

@@ -4,17 +4,21 @@ import React from "react";
 import Spinner from "@/components/ui/spinner";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import Lesson from "@/components/Lessons/LessonCard";
-import { FilterValues } from "@/lib/types";
+import { FilterValues } from "@/utils/types";
 import PostsPagination from "../views/AllPosts/Pagination";
 import { useLessonsQuery } from "@/hooks/useLessonsQuery";
 import { useBookmarksQuery } from "@/hooks/useBookmarksQuery";
 import { useWatchedQuery } from "@/hooks/useWatchedQuery";
+
+
 type LessonListProps = {
     user: string | undefined;
     db: "allPosts" | "newUploads";
     filters: FilterValues;
     pagination: { page: number; amount: number };
 };
+
+
 function LessonList({ user, db, filters, pagination }: LessonListProps) {
     const { character, opponent, notes, timestamped } = filters;
     const { page, amount } = pagination;
@@ -35,7 +39,7 @@ function LessonList({ user, db, filters, pagination }: LessonListProps) {
             </div>
         );
     }
-    if (isError) return <div>Error: {error.message}</div>;
+    if (isError) return <div className='flex flex-row justify-center'>Error: {error.message}</div>;
 
     return (
         <>
