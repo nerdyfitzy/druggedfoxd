@@ -4,15 +4,6 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import type { BookmarkedLesson } from "@/utils/types";
 
-const createClientGetUser = async () => {
-
-    const supabase = createClient();
-    const {
-        data: { user },
-    } = await supabase.auth.getUser();
-
-    return [supabase, user]
-}
 
 export const changeBookmarked = async (lesson: number, toStatus: boolean) => {
     console.log("Changing bookmark of ", lesson, "to", toStatus);
