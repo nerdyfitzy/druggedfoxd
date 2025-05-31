@@ -78,7 +78,7 @@ export default function Filters() {
                         <SelectContent>
                             <SelectGroup>
                                 {notesOptions.map(note =>
-                                    <SelectItem key={note.value} value={note.value}>note.label</SelectItem>
+                                    <SelectItem key={note.value} value={note.value}>{note.value}</SelectItem>
                                 )}
                             </SelectGroup>
                         </SelectContent>
