@@ -5,26 +5,26 @@ import AllPosts from "../AllPosts";
 import { SearchParamsProps } from "@/utils/types";
 
 function MobileHomeView({
-  searchParams,
-  className,
+    searchParams,
+    className,
 }: SearchParamsProps & { className?: string }) {
-  return (
-    <Tabs
-      defaultValue='new-uploads'
-      className={`flex flex-col items-center gap-4 w-full ${className} `}
-    >
-      <TabsList className='flex gap-4 w-2/3'>
-        <TabsTrigger value='new-uploads'>New Uploads</TabsTrigger>
-        <TabsTrigger value='all-posts'>All Posts</TabsTrigger>
-      </TabsList>
-      <TabsContent value='new-uploads'>
-        <NewUploads />
-      </TabsContent>
-      <TabsContent value='all-posts' className='w-full'>
-        <AllPosts searchParams={searchParams} />
-      </TabsContent>
-    </Tabs>
-  );
+    return (
+        <Tabs
+            defaultValue='new-uploads'
+            className={`flex flex-col items-center gap-4 w-full ${className} `}
+        >
+            <TabsList className='flex gap-4 w-2/3'>
+                <TabsTrigger value='all-posts'>All Posts</TabsTrigger>
+                <TabsTrigger value='new-uploads'>New Uploads</TabsTrigger>
+            </TabsList>
+            <TabsContent value='all-posts' className='w-full'>
+                <AllPosts searchParams={searchParams} />
+            </TabsContent>
+            <TabsContent value='new-uploads'>
+                <NewUploads />
+            </TabsContent>
+        </Tabs>
+    );
 }
 
 export default MobileHomeView;
