@@ -7,6 +7,8 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import Lesson from "@/components/Lessons/LessonCard";
 import { getAllRecentlyViewed, getAllUserWatched } from "@/app/actions/watch";
 import { getAllUserBookmarks } from "@/app/actions/bookmark";
+import { useBookmarksQuery } from "@/hooks/useBookmarksQuery";
+import { useWatchedQuery } from "@/hooks/useWatchedQuery";
 
 type LessonListProps = {
     user: string | undefined;
@@ -25,8 +27,11 @@ function ProfileLessonList({ user, type }: LessonListProps) {
             }
         },
     });
+    const { data: bookmarksData, isPending: bookmarksIsPending } =
+        useBookmarksQuery();
+    const { data: watchedData, isPending: watchedIsPending } = useWatchedQuery();
 
-    if (isPending)
+    if (isPending || watchedIsPending || bookmarksIsPending)
         return (
             <div>
                 <Spinner />
@@ -34,7 +39,6 @@ function ProfileLessonList({ user, type }: LessonListProps) {
             </div>
         );
     if (isError) return <div>Error: {error.message}</div>;
-    console.log(data, isPending, "weird query");
     return (
         <>
             <span className='absolute right-10 font-bold -z-10'>
@@ -51,8 +55,9 @@ function ProfileLessonList({ user, type }: LessonListProps) {
                                     lesson={Lessons}
                                     db='allPosts'
                                     userInfo={{
-                                        bookmarked: type === "bookmarks",
-                                        watched: type === "watched",
+                                        bookmarked: bookmarksData?.includes(Lessons.id) || false,
+                                        watched: watchedData?.includes(Lessons.id) || false
+
                                     }}
                                     isLoggedIn={user !== undefined}
                                 />

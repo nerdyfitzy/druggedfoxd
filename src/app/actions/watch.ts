@@ -62,49 +62,17 @@ export const logLessonAsViewed = async (lesson: number) => {
     } = await supabase.auth.getUser();
 
     if (user) {
-        const { data, error } = await supabase
+        const { error } = await supabase
             .from("Recently_Viewed")
-            .select("*")
-            .eq("userId", user.id)
-            .eq("lessonId", lesson);
-        if (error) throw new Error(error.message);
-
-        if (data && data.length < 5) {
-            const { error } = await supabase
-                .from("Recently_Viewed")
-                .insert([
-                    {
-                        userId: user.id,
-                        lessonId: lesson,
-                    },
-                ])
-                .select();
-
-            if (error) throw new Error(error.message);
-        } else if (data && data.length >= 5) {
-            const { data } = await supabase
-                .from("Recently_Viewed")
-                .select("lessonId")
-                .eq("userId", user.id)
-                .eq("lessonId", lesson)
-                .order("createdAt", { ascending: false })
-                .limit(1);
-
-            const { error } = await supabase
-                .from("Recently_Viewed")
-                .delete()
-                .eq("userId", user.id)
-                .eq("lessonId", data?.[0].lessonId as number);
-
-            const res = await supabase.from("Recently_Viewed").insert([
+            .insert([
                 {
-                    lessonId: lesson,
                     userId: user.id,
+                    lessonId: lesson,
                 },
-            ]);
-            if (error) throw new Error(error.message);
-            if (res.error) throw new Error(res.error.message);
-        }
+            ])
+            .select();
+
+        if (error) throw new Error(error.message)
     }
 
     return
@@ -160,7 +128,8 @@ export const getAllRecentlyViewed = async () => {
         .from("Recently_Viewed")
         .select("Lessons (*)")
         .order("createdAt", { ascending: false })
-        .eq("userId", user.id);
+        .eq("userId", user.id)
+        .limit(5);
 
     if (error) throw new Error(error.message);
     else return data;

@@ -19,47 +19,47 @@ import GnW from "../../public/static/images/characters/GnW.png";
 import Yoshi from "../../public/static/images/characters/Yoshi.png";
 import { NamesToImages } from "@/utils/types";
 const months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
 ];
 
 const namesToImages: NamesToImages = {
-  CFalcon,
-  Doc,
-  Falco,
-  Fox,
-  Ganondorf,
-  Icies,
-  Link,
-  Luigi,
-  Marth,
-  Peach,
-  Bowser,
-  Pikachu,
-  Puff,
-  Samus,
-  YL,
-  Sheik,
-  GnW,
-  Yoshi,
-  "Donkey Kong": DonkeyKong,
+    CFalcon,
+    Doc,
+    Falco,
+    Fox,
+    Ganondorf,
+    Icies,
+    Link,
+    Luigi,
+    Marth,
+    Peach,
+    Bowser,
+    Pikachu,
+    Puff,
+    Samus,
+    YL,
+    Sheik,
+    GnW,
+    Yoshi,
+    "Donkey Kong": DonkeyKong,
 };
 
 export function formatDate(date: string | Date) {
-  const d = new Date(date);
-  return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
+    const d = new Date(date);
+    return `${months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`;
 }
 
 export function getImageFromName(name: string) {
-  return namesToImages[name];
+    return namesToImages[name];
 }
