@@ -10,7 +10,7 @@ function MobileHomeView({
 }: SearchParamsProps & { className?: string }) {
     return (
         <Tabs
-            defaultValue='new-uploads'
+            defaultValue='all-posts'
             className={`flex flex-col items-center gap-4 w-full ${className} `}
         >
             <TabsList className='flex gap-4 w-2/3'>
