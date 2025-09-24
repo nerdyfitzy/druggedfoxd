@@ -1,3 +1,11 @@
+# Druggedfoxd
+
+This is the public repo for [druggedfoxd](https://druggedfox.pro), a website to store and filter all of the different lessons from the Melee coach [Druggedfox](https://www.patreon.com/c/Druggedfox/posts). Each link is to a protected patreon page as the user must independently purchase access to these lessons on his Patreon.
+
+Lessons are automatically added with the [scraper](https://github.com/nerdyfitzy/dfox-puppeteer-scraper) that I made. They're usually added within the day that they're uploaded to his patreon.
+
+Much of the older history of the site is hidden, but what I'd consider the official release versions are all here. Feel free to use this however you'd like.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
