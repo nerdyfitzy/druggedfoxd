@@ -5,8 +5,6 @@ import { ThemeProvider } from "@/components/theme/theme-provider";
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import ReactQueryProvider from "@/utils/Providers";
 import Helper from "@/components/layouts/Helper";
 import { Viewport } from "next";
@@ -49,8 +47,6 @@ export default function RootLayout({
                         <Footer />
                         <Helper />
                         <Toaster />
-                        <Analytics />
-                        <SpeedInsights />
                     </ThemeProvider>
                 </ReactQueryProvider>
             </body>
